@@ -3,7 +3,7 @@ package com.baidu.android.voicedemo;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.*;
-import com.baidu.speech.recognizerdemo.R;
+import com.brainofthings.demo.R;
 
 public class Setting extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
 

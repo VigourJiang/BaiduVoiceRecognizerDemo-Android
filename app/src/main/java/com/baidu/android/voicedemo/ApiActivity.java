@@ -5,22 +5,59 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.speech.RecognitionListener;
 import android.speech.SpeechRecognizer;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.*;
 import com.baidu.speech.VoiceRecognitionService;
-import com.baidu.speech.recognizerdemo.R;
+import com.brainofthings.demo.R;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.conn.BasicManagedEntity;
+import org.apache.http.entity.ByteArrayEntity;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.params.HttpParams;
+import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
+import java.net.HttpURLConnection;
+import java.net.Socket;
+import java.net.URL;
+import java.net.UnknownHostException;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.security.KeyManagementException;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.UnrecoverableKeyException;
 import java.util.*;
+
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocketFactory;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
+
+import static java.net.Proxy.Type.HTTP;
 
 public class ApiActivity extends Activity implements RecognitionListener {
     private static final String TAG = "Sdk2Api";
@@ -176,30 +213,196 @@ public class ApiActivity extends Activity implements RecognitionListener {
                     intent.putExtra(Constant.EXTRA_OFFLINE_LM_RES_FILE_PATH, "/sdcard/easr/s_2_InputMethod");
                 }
             }
-            intent.putExtra(Constant.EXTRA_OFFLINE_SLOT_DATA, buildTestSlotData());
+//            intent.putExtra(Constant.EXTRA_OFFLINE_SLOT_DATA, buildTestSlotData());
         }
     }
 
-    private String buildTestSlotData() {
-        JSONObject slotData = new JSONObject();
-        JSONArray name = new JSONArray().put("李涌泉").put("郭下纶");
-        JSONArray song = new JSONArray().put("七里香").put("发如雪");
-        JSONArray artist = new JSONArray().put("周杰伦").put("李世龙");
-        JSONArray app = new JSONArray().put("手机百度").put("百度地图");
-        JSONArray usercommand = new JSONArray().put("关灯").put("开门");
+//    private String buildTestSlotData() {
+//        JSONObject slotData = new JSONObject();
+//        JSONArray name = new JSONArray().put("李涌泉").put("郭下纶");
+//        JSONArray song = new JSONArray().put("七里香").put("发如雪");
+//        JSONArray artist = new JSONArray().put("周杰伦").put("李世龙");
+//        JSONArray app = new JSONArray().put("手机百度").put("百度地图");
+//        JSONArray usercommand = new JSONArray().put("关灯").put("开门");
+//        try {
+//            slotData.put(Constant.EXTRA_OFFLINE_SLOT_NAME, name);
+//            slotData.put(Constant.EXTRA_OFFLINE_SLOT_SONG, song);
+//            slotData.put(Constant.EXTRA_OFFLINE_SLOT_ARTIST, artist);
+//            slotData.put(Constant.EXTRA_OFFLINE_SLOT_APP, app);
+//            slotData.put(Constant.EXTRA_OFFLINE_SLOT_USERCOMMAND, usercommand);
+//        } catch (JSONException e) {
+//
+//        }
+//        return slotData.toString();
+//    }
+
+    /*
+    http请求方式: POST
+
+POST数据格式：json
+POST数据例子：
+{
+    "text": "天气"
+}
+     */
+    private String buildTuringRobotReq(final String content){
+        final JSONObject root = new JSONObject();
         try {
-            slotData.put(Constant.EXTRA_OFFLINE_SLOT_NAME, name);
-            slotData.put(Constant.EXTRA_OFFLINE_SLOT_SONG, song);
-            slotData.put(Constant.EXTRA_OFFLINE_SLOT_ARTIST, artist);
-            slotData.put(Constant.EXTRA_OFFLINE_SLOT_APP, app);
-            slotData.put(Constant.EXTRA_OFFLINE_SLOT_USERCOMMAND, usercommand);
-        } catch (JSONException e) {
-
+            root.put("text", content);
+        } catch (final JSONException e) {
+            txtLog.post(new Runnable() {
+                @Override
+                public void run() {
+                    txtLog.append(e.getMessage());
+                }
+            });
         }
-        return slotData.toString();
+        return root.toString();
     }
 
+    private String parseTuringRobotResp(String resp){
+        try {
+            JSONObject root = new JSONObject(resp);
+            return root.getString("text");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    /*
+
+POST数据格式：json
+POST数据例子：
+{
+    "text": "你好吗",
+    "per": "0"
+}
+
+     */
+    private String buildVoiceGenReq(String content){
+        JSONObject root = new JSONObject();
+        try {
+            root.put("text", content);
+            root.put("per", "0");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return root.toString();
+    }
+
+    private String parseVoiceGenResp(String resp){
+        try {
+            JSONObject root = new JSONObject(resp);
+            return root.getString("url");
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return "error";
+        }
+    }
+
+    private MediaPlayer mediaPlayer;
+
+    private void playMp3(String url){
+        try {
+            if(mediaPlayer != null){
+                mediaPlayer.release();
+            }
+            mediaPlayer = new MediaPlayer();
+            mediaPlayer.setDataSource(url);
+
+            mediaPlayer.prepareAsync();
+//准备完成的监听
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                public void onPrepared(MediaPlayer mp) {
+                    mediaPlayer.start();
+                }
+            });
+        } catch (final Exception e) {
+            txtLog.post(new Runnable() {
+                @Override
+                public void run() {
+                    txtLog.append(e.getMessage());
+                }
+            });
+        }
+
+    }
+    protected void turingRobot(String content)
+    {
+        HashMap ap = new HashMap();
+        ap.put("d", "s");
+
+        try
+        {
+            String voice = "调用失败-1";
+            {
+                HttpClient client = EasySSLSocketFactory.getNewHttpClient();
+                String url = "https://api.fivecent.com.cn/cgi-bin/tuling/reply";
+                HttpPost post = new HttpPost(url);
+
+                post.setHeader("Content-Type", "application/json;charset=UTF-8");
+                final String req = buildTuringRobotReq(content);
+
+                HttpEntity e = new ByteArrayEntity(req.getBytes(StandardCharsets.UTF_8));
+                post.setEntity(e);
+                HttpResponse resp = client.execute(post);
+
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                resp.getEntity().writeTo(outputStream);
+                final String result = new String(outputStream.toByteArray(), "utf-8");
+
+                final String turingResp = parseTuringRobotResp(result);
+                voice = turingResp;
+                txtLog.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        txtLog.append("->" + turingResp + "\n");
+                    }
+                });
+//                txtLog.post(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        txtLog.append(req + "\n");
+//                        txtLog.append(result + "\n");
+//                    }
+//                });
+            }
+            {
+                HttpClient client = EasySSLSocketFactory.getNewHttpClient();
+                String url = "https://api.fivecent.com.cn/cgi-bin/yuyin/text_to_audio";
+                HttpPost post = new HttpPost(url);
+
+                post.setHeader("Content-Type", "application/json;charset=UTF-8");
+
+                final String voiceReq = voice;
+                final String req = buildVoiceGenReq(voiceReq);
+                HttpEntity e = new ByteArrayEntity(req.getBytes(StandardCharsets.UTF_8));
+                post.setEntity(e);
+                HttpResponse resp = client.execute(post);
+
+                ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+                resp.getEntity().writeTo(outputStream);
+                final String result = new String(outputStream.toByteArray(), "utf-8");
+
+                final String voiceResp = parseVoiceGenResp(result.replace(" ", ""));
+                playMp3(voiceResp);
+            }
+
+        }
+        catch(final IOException e)
+        {
+            txtLog.post(new Runnable() {
+                @Override
+                public void run() {
+                    txtLog.append(e.getMessage());
+                }
+            });
+        }
+    }
     private void start() {
+
         txtLog.setText("");
         print("点击了“开始”");
         Intent intent = new Intent();
@@ -213,7 +416,7 @@ public class ApiActivity extends Activity implements RecognitionListener {
                 intent.putExtra("args", args);
             }
         }
-        boolean api = sp.getBoolean("api", false);
+        boolean api = sp.getBoolean("api", true);
         if (api) {
             speechEndTime = -1;
             speechRecognizer.startListening(intent);
@@ -313,7 +516,25 @@ public class ApiActivity extends Activity implements RecognitionListener {
         print("识别成功：" + Arrays.toString(nbest.toArray(new String[nbest.size()])));
         String json_res = results.getString("origin_result");
         try {
-            print("origin_result=\n" + new JSONObject(json_res).toString(4));
+            final JSONObject json = new JSONObject(json_res);
+            //print("origin_result=\n" + json.toString(4));
+            final String content = json.getJSONObject("content").getJSONArray("item").getString(0);
+           // txtLog.append("Send to Turing:" + content + "\n");
+            {
+                Thread t = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        try {
+                            turingRobot(content);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                t.start();
+
+
+            }
         } catch (Exception e) {
             print("origin_result=[warning: bad json]\n" + json_res);
         }
@@ -329,7 +550,7 @@ public class ApiActivity extends Activity implements RecognitionListener {
     public void onPartialResults(Bundle partialResults) {
         ArrayList<String> nbest = partialResults.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION);
         if (nbest.size() > 0) {
-            print("~临时识别结果：" + Arrays.toString(nbest.toArray(new String[0])));
+            //print("~临时识别结果：" + Arrays.toString(nbest.toArray(new String[0])));
             txtResult.setText(nbest.get(0));
         }
     }

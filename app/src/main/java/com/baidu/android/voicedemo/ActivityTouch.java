@@ -14,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.*;
 import com.baidu.speech.VoiceRecognitionService;
-import com.baidu.speech.recognizerdemo.R;
+import com.brainofthings.demo.R;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -155,11 +155,6 @@ public class ActivityTouch extends Activity implements RecognitionListener {
 
     private String buildTestSlotData() {
         JSONObject slotData = new JSONObject();
-        JSONArray name = new JSONArray().put("李涌泉").put("郭下纶");
-        JSONArray song = new JSONArray().put("七里香").put("发如雪");
-        JSONArray artist = new JSONArray().put("周杰伦").put("李世龙");
-        JSONArray app = new JSONArray().put("手机百度").put("百度地图");
-        JSONArray usercommand = new JSONArray().put("关灯").put("开门");
         return slotData.toString();
     }
 

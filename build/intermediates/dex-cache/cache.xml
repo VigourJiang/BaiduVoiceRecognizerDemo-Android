@@ -3,39 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/Users/vigour/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="d670a61bd6f75d31dba10d8eedfe5e4e907d6879">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_51baa6955d9e2c467f7bcee830b82cf2321e6351/classes.dex" />
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-22.2.0_3ccd97ea9d4e4712d759fbe5ff7523fe63ff7f6c/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/vigour/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
+        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_ac3e9fb0cfe4d47004245558440755da729d6ff8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_7bca3746327e6a2178bdb48158a452a10d94b5c0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_955294f2b84616d797cb632a5f7a1f75994953fd/classes.dex" />
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-22.2.0_1fa210636e17a2de3ba662e47e5411b638c1d2de/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -48,21 +30,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
+        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_36ffd7ebb194c03723e0c54f91395cb20549d53c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_7e93493d95673079cc57d2f2cad0f8e78dd977e1/classes.dex" />
+        sha1="378730ace25e4bb1a2f3cf10cfc2bd14ccadea82">
+        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_51baa6955d9e2c467f7bcee830b82cf2321e6351/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -70,98 +43,26 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="8a7672886d02dec18ca0a0bd0d05b3533d902797">
+        sha1="3ce497c9614344deb899afef8555e0f7122c4754">
         <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_ced1ea56fe2e1595e1f940c9759787857dc59f83/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
+        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_c4968b3ca15aab692e25cd025987430a73ed28c3/classes.dex" />
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-22.2.0_f859fdb9a937dbc83a39555dcfb8132acf1882ca/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.0"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_aeff59c069c6b8b49522349b190b53f099075725/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_18d20a096e57015f3525d75bcf592933d650f32d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f83b00041ecfba705603fec40363416c7de69719">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_519fe217d565ccb2121f592117ba3bea54f718a2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_7b16888e24984b3cb39f908f96a367c05606f2c5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_b5ed22fed4794ff785fac58245c9590c44677f55/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_249232ace637863eec3cb3a79b5364f53bac4ecd/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_68e702c2dfd493b0d91ae971b08292b57dbe04ed/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_2c69199512f35fbb72619de2d0f1e77fa58e4c41/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
-        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_0678aa96b22268c95866d4e7a82d841a211ed3c8/classes.dex" />
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/Users/vigour/tmp/AndroidStudioProjects/BaiduVoiceRecognizerDemo-Android/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-22.2.0_2455dee3cea67a8a0bb90a4693ccba939b0e0d44/classes.dex" />
     </item>
 
 </items>

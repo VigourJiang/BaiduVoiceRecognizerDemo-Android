@@ -4,7 +4,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
-import com.baidu.speech.recognizerdemo.R;
+import com.brainofthings.demo.R;
 
 /**
  * Created by weilikai01 on 2015/5/12.
